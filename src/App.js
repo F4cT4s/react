@@ -17,7 +17,7 @@ function App() {
         <div className='MainCard'>
           <div className='Card' id='Card1'>
               <IMGa src = {require('./images/mininuke.jpg')} alt='mini nuke' />
-              <Button onClick={onHandlerClick} text='>' />
+              <Button onClick={onHandlerClick} class='Btn1' text='>' />
             <div className='h3C'>
               <span className='h3I'>MINI NUKE</span>
               <IMGb src= {require('./images/mininukeair.jpg')} alt= 'mini nuke air' />
@@ -25,18 +25,18 @@ function App() {
           </div>
           <div className='Card' id='Card2'>
             <div className='h3C'>
-              <span className='h3I'>ASSAULTRON</span>
-              <IMGb src= {require('./images/mininukeair.jpg')} alt= 'mini nuke air' />
+              <span className='h3I'>MR HANDY</span>
+              <IMGb src= {require('./images/mrhandywall.jpg')} alt= 'mini nuke air' />
             </div>
-            <Button onClick={onHandlerClick} text='<' />
-            <IMGa src = {require('./images/Assaultron.png')} alt='assaultron' />
+            <Button onClick={onHandlerClick}  className='btn1' text='<' />
+            <IMGa src = {require('./images/mrhandy.jpg')} alt='mr handy' />
           </div>
           <div className='Card' id='Card1'>
             <IMGa src = {require('./images/powerarmor.jpg')} alt='power armors' />
-            <Button onClick={onHandlerClick} text='>' />
+            <Button onClick={onHandlerClick} className='btn1' text='>' />
             <div className='h3C'>
               <span className='h3I'>POWER ARMOR</span>
-              <IMGb src= {require('./images/powerarmorcolors.jpg')} alt= 'power armor color' />
+              <IMGb src= {require('./images/powerarmorbanner.jpg')} alt= 'power armor ' />
             </div>
           </div>
         </div>

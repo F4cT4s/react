@@ -2,7 +2,7 @@ import React from "react";
 import logo from '../logo.svg';
 
 
-const NavBar = ({url}) => {
+function NavBar() {
   return (
     <header className="App-header">
         <div className='Logo'>
@@ -12,13 +12,13 @@ const NavBar = ({url}) => {
         <div className='navBar'>
             <ul className="Ul">
                 <li className="nav-item">
-                    <a aria-current="page" href={url}>HOME</a>
+                    <a aria-current="page" href="">HOME</a>
                 </li>
                 <li className="nav-item">
-                    <a aria-current="page" href={url}>HISTORIA</a>
+                    <a aria-current="page" href="">HISTORIA</a>
                 </li>
                 <li className="nav-item">
-                    <a aria-current="page" href={url}>CONTACTO</a>
+                    <a aria-current="page" href="">CONTACTO</a>
                 </li>
             </ul>
         </div>
