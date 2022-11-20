@@ -1,4 +1,4 @@
-  #Header{
+  #header{
     background-image: linear-gradient( 109.6deg,  rgba(0,0,0,1) 11.2%, rgba(11,132,145,1) 91.1% );
     width: 100%;
   }
@@ -9,7 +9,7 @@
   }
   
   @media (prefers-reduced-motion: no-preference) {
-    .navbar-brand {
+    .imgBrand {
       animation: App-logo-spin infinite 20s linear;
     }
   }
@@ -33,48 +33,3 @@
   margin: 10px;
   
 }
-
-
-.Btn1{
-  color: whitesmoke;
-  background-image: linear-gradient(to right, #434343 0%, black 100%);
-  font-size: 20px;
-}
-
-
-@keyframes slide-in-left {
-  0% {
-    -webkit-transform: translateX(0px);
-            transform: translateX(0px);
-    opacity: 0;
-  }
-  100% {
-    -webkit-transform: translateX(+20px);
-            transform: translateX(+20px);
-    opacity: 1;
-  }
-}
-
-  .Btn1:hover{
-  background-color: whitesmoke;
-  -webkit-animation: slide-in-left 2s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-  animation: slide-in-left 2s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-  background-image: linear-gradient(to right, #434343 0%, black 100%);
-}
-
-.imga {
-  height: 500px;
-  width: 400px;
-  object-fit: cover;
-  border-radius: 10px;
-}
-
-.imgb{
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
-  object-position: 0px 1px;
-  overflow: hidden;
-  border-radius: 10px;
-}
-
