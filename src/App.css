@@ -31,5 +31,10 @@
   list-style-type: none;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   margin: 10px;
-  
+
+}
+
+.body {
+  background-image: linear-gradient( rgba(11,132,145,1) 91.1% ,109.6deg,  rgba(0,0,0,1) 11.2% );
+  width: 100%;
 }
