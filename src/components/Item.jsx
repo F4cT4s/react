@@ -1,24 +1,21 @@
 import React from "react";
 import ItemCount from "./ItemCount";
 
-const Item = (product) =>{
+const Item = ({ product }) =>{
     return (
-            <div className="card mb-3 text-bg-secondary">
-                <div className="col">
-                    <div className="row">
-                        <img src="images/plane.svg" className="img-fluid rounded-start" alt="" style={{ width: 200, height: 200 }} />
-                    </div>
-                    <div className="row">
-                        <div className="card-body">
-                        <h5 className="card-title">Card title</h5>
-                        <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+            
+                <div className="m-5 col-md-3  text-bg-secondary  ">
+                    <img src={product.image} className="m-4 d-flex justify-content-center  " alt="" style={{ height: 300 }} />
+                        <div className="card-body m-2 ">
+                        <h5 className="card-title m-2 d-flex justify-content-center " >{product.title}</h5>
+                        <p className="card-text m-2 d-flex justify-content-center ">{product.descripcion}</p>
+                        <h4 className="card-text d-flex justify-content-center"> $ {product.price}</h4>
                         </div>
-                    </div>
-                    <div className="row-md-4">
-                        <ItemCount/>
+                    <div className="m-1 align-self-end">
+                        <ItemCount initial={product.initial} stock={product.stock}/>
                     </div>
                 </div>
-            </div>
+            
     )
 }
 

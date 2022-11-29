@@ -1,28 +1,39 @@
+import React from "react";
 import {useState, useEffect} from "react";
-import { customFetch } from "../Data/customFetch";
 import { products } from "../Data/products";
-import itemList from "./itemList";
-const ItemListContainer = ({products}) => {
+import { customFetch } from "../Data/customFetch";
+import {ItemList} from "./itemList";
+import { Loader } from "./loader";
 
-    const [listProducts, setListProducts] = useState({})
 
-    useEffect (() =>{
-        customFetch ()
+const ItemListContainer = () => {
+
+    const [ listProducts, setListProducts] = useState([])
+    
+    const [ loading, setloading] = useState (true)
+
+    useEffect (() => {
+        customFetch (products)
             .then (res => {
+                setloading (false)
                 setListProducts(res)
             })
-    }
-    , [])
+    }, [])
 
     return (
         <div className="body">
-            <div className="row">
-                <div className="col-md-12">
-                    <itemList/>
-                </div>
-            </div>
+                {
+                    loading
+                    ?
+                    <Loader />
+                    :
+                    <ItemList listProducts={listProducts} />
+
+                }
         </div>
     )
 }
 
 export default ItemListContainer
+
+
