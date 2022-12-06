@@ -1,5 +1,6 @@
 import React from "react";
 import CartWidget from "./CartWidget.jsx";
+import { Link, NavLink } from "react-router-dom";
 
 
 const NavBar = () => {
@@ -9,16 +10,16 @@ const NavBar = () => {
                 <div className="col-md-8">
                     <nav className="navbar navbar-expand-lg">
                         <div className="container-fluid">
-                            <a className="navbar-brand" href=""><img src="images/elephant.svg" className="imgBrand" width="80"></img></a>
+                            <Link className="navbar-brand" to={"/"}><img src="/images/elephant.svg" className="imgBrand" width="80" alt="Logo marca"></img></Link>
                             <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                             <span className="navbar-toggler-icon"></span>
                             </button>
                             <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
                                 <div className="navbar-nav">
-                                    <a className="nav-link" aria-current="page" href="">Shop</a>
-                                    <a className="nav-link" href="">Envios</a>
-                                    <a className="nav-link" href="">Sucursal</a>
-                                    <a className="nav-link" href="">Nosotros</a>
+                                    <NavLink className="nav-link" activeclassname="page" to={"/"}>Shop</NavLink>
+                                    <NavLink className="nav-link" activeclassname="page" to={"/category/Focos"}>Focos</NavLink>
+                                    <NavLink className="nav-link" activeclassname="page" to={"/category/Empotrado"}>Empotrado</NavLink>
+                                    <NavLink className="nav-link" activeclassname="page" to={"/category/Accesorios"}>Accesorios</NavLink>
                                 </div>
                             </div>
                         </div>
