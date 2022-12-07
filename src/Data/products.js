@@ -98,7 +98,7 @@ export const products = [
     },
     {
         id: 7,
-        title: "Luz empotrada ",
+        title: "Plafon led de 12w White ",
         subtitle : "Plafon empotrado",
         category: "Empotrado",
         descripcion: "Obtén luz regulable en cualquier tono de blanco cálido o frío con la luz empotrable inteligente WiZ de 8 pulgadas. Úsalo con tu wifi existente para controlar con la aplicación WiZ o tu voz.",
@@ -114,7 +114,7 @@ export const products = [
     },
     {
         id: 8,
-        title: "Plafón ultra-delgado de 16 W ",
+        title: "Plafón ultra-delgado White de 16 W ",
         subtitle : "Plafon empotrado",
         category: "Empotrado",
         descripcion: "Disfrutar una luz que se adapta a tu día a día es fácil con el plafón ultra-delgado WiZ Super Slim.",
@@ -185,11 +185,59 @@ export const products = [
         image: "/images/productsimages/wiz12.jpg",
         price : 7000,
         initial : 1,
-        stock : "30",
+        stock : "8",
         config: {
             color: ['blue', 'red', 'yellow'],
             size:  [''],
             voltage: ['12v']
+        }
+    },
+    {
+        id: 13,
+        title: "Plafón ultra-delgado de RGB 16 W ",
+        subtitle : "Plafon empotrado",
+        category: "Empotrado",
+        descripcion: "Disfrutar una luz que se adapta a tu día a día o enciende el modo fiesta con el plafón ultra-delgado WiZ Super Slim RGB.",
+        image: "/images/productsimages/wiz8.jpg",
+        price : 6000,
+        initial : 1,
+        stock : "50",
+        config: {
+            color: ['blue', 'red', 'yellow'],
+            size:  ['292',],
+            voltage: ['110v', '220v']
+        }
+    },
+    {
+        id: 14,
+        title: "Plafon led RGB de 12 w",
+        subtitle : "Plafon empotrado",
+        category: "Empotrado",
+        descripcion: "Obtén luz regulable en cualquier tono de blanco cálido o frío, o elige uno de los 10000 colores con la luz empotrable inteligente WiZ de 8 pulgadas. Úsalo con tu wifi existente para controlar con la aplicación WiZ o tu voz.",
+        image: "/images/productsimages/wiz7.jpg",
+        price : 6000,
+        initial : 1,
+        stock : "15",
+        config: {
+            color: ['blue', 'red', 'yellow'],
+            size:  ['292',],
+            voltage: ['110v', '220v']
+        }
+    },
+    {
+        id: 15,
+        title: "Plafón ultra-delgado de 20 W ",
+        subtitle : "Plafon empotrado",
+        category: "Empotrado",
+        descripcion: "El nuevo plafón ultra-delgado WiZ Super Slim de 20 Watts lleva a otro nivel la potencia de iluminar.",
+        image: "/images/productsimages/wiz8.jpg",
+        price : 6000,
+        initial : 1,
+        stock : "18",
+        config: {
+            color: ['blue', 'red', 'yellow'],
+            size:  ['292',],
+            voltage: ['110v', '220v']
         }
     },
 ]
