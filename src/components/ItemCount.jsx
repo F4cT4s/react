@@ -15,7 +15,7 @@ function ItemCount({initial, stock, onAdd}) {
             <button className="btn btn-danger m-1" onClick={decrementCounter}>-</button>
         </div>
         <div className="m-2">
-            <button className="p-2 text-bg-secondary" >Agregar al carrito</button>
+            <button className="p-2 text-bg-secondary" onClick={()=> onAdd(counter)} >Agregar al carrito</button>
         </div>
       </div>
     );

@@ -1,8 +1,22 @@
 import React from "react";
 import ItemCount from "./ItemCount";
+import { useCartContext } from "../Context/CartContext";
+import { useState } from "react";
+import { NavLink } from "react-router-dom";
 
 const ItemDetail = ({product}) => {
     
+    const [isadded, setIsadded] = useState (false)
+
+    const {addToCart} = useCartContext()
+
+    const onAdd = (quantity) => {
+        addToCart(product ,quantity)
+        setIsadded (true)
+    }
+
+
+
     return (
         <div className="container" >
             <div className="row p-5 d-flex justify-content-center ">
@@ -15,7 +29,14 @@ const ItemDetail = ({product}) => {
                     <h5 className="card-text m-2 d-flex justify-content-center">{product.descripcion}</h5>
                     <h3 className="card-text d-flex justify-content-center"><b>$ {product.price}</b></h3>
                 <div className="m-1 align-self-end">
-                        <ItemCount initial={product.initial} stock={product.stock}/>
+                    {   
+                        isadded ?
+                        <NavLink to="/cart">
+                            <button className="p-2 text-bg-secondary">ir al carrito</button>
+                        </NavLink>
+                        :
+                        <ItemCount initial={product.initial} stock={product.stock} onAdd={onAdd}/>
+                    }
                     </div>
                 </div>
             </div>

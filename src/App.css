@@ -1,5 +1,5 @@
 
-.body {
+#root {
   background: linear-gradient(240deg, rgba(0,0,0,1) 11.2%, rgba(11,132,145,1) 91.1%); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
 }
@@ -103,6 +103,8 @@
 }
 
 #footer {
+  bottom: 0;
+  width: 100%;
   background-image: linear-gradient( 109.6deg,  rgba(0,0,0,1) 11.2%, rgba(11,132,145,1) 91.1% );
   max-width: 100%;
   overflow: hidden;
@@ -124,4 +126,15 @@ body::-webkit-scrollbar-thumb {
   background-image: radial-gradient( circle farthest-corner at 92.3% 71.5%,  rgba(83,138,214,1) 0%, rgba(134,231,214,1) 90% );    
   border-radius: 20px;       
   background-image: radial-gradient( circle 976px at 51.2% 51%,  rgb(128, 146, 236) 0%, rgba(11,132,145,1) 0%, rgb(47, 75, 214) 17.3%, rgba(11,132,145,1) 58.8%, rgba(11,132,145,1) 71.4%, rgba(16,66,157,1) 100.2%, rgba(187,187,187,1) 100.2% );  
+}
+
+table{
+  background-color: rgba(11,132,145,1);
+  border-radius: 10px;
+  border-style: none;
+  font-size: 18px;
+}
+
+tbody, td, tfoot, th, thead, tr {
+  border-style: none;
 }
