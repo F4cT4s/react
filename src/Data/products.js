@@ -1,6 +1,6 @@
 export const products = [
     {
-        id: 1,
+        identificador: 1,
         title: "Luminaria de mesa Squire",
         subtitle : "de mesa",
         category: "Accesorios",
@@ -17,7 +17,7 @@ export const products = [
     },
 
     {
-        id: 2,
+        identificador: 2,
         title: "Lámpara de filamento ",
         subtitle : "ámbar de 6.9 W (equivalente a 50 W) ST64 E27",
         category: "Focos",
@@ -33,7 +33,7 @@ export const products = [
         }
     },
     {
-        id: 3,
+        identificador: 3,
         title: "Lámpara de 9 W ",
         subtitle : "(equivalente a 60 W) A60 E27",
         category: "Focos",
@@ -49,7 +49,7 @@ export const products = [
         }
     },
     {
-        id: 4,
+        identificador: 4,
         title: "Lámpara de 9 W ",
         subtitle : "(equivalente a 60 W) A60 E27",
         category: "Focos",
@@ -65,7 +65,7 @@ export const products = [
         }
     },
     {
-        id: 5,
+        identificador: 5,
         title: "Lámpara de 4.9 W ",
         subtitle : "(equivalente a 50 W) PAR16 GU10",
         category: "Focos",
@@ -81,7 +81,7 @@ export const products = [
         }
     },
     {
-        id: 6,
+        identificador: 6,
         title: "Vela de led ",
         subtitle : "(equivalente a 40 W) C37 E14",
         category: "Focos",
@@ -97,7 +97,7 @@ export const products = [
         }
     },
     {
-        id: 7,
+        identificador: 7,
         title: "Plafon led de 12w White ",
         subtitle : "Plafon empotrado",
         category: "Empotrado",
@@ -113,7 +113,7 @@ export const products = [
         }
     },
     {
-        id: 8,
+        identificador: 8,
         title: "Plafón ultra-delgado White de 16 W ",
         subtitle : "Plafon empotrado",
         category: "Empotrado",
@@ -129,7 +129,7 @@ export const products = [
         }
     },
     {
-        id: 9,
+        identificador: 9,
         title: "WiZmote ",
         subtitle : "WiZmote",
         category: "Accesorios",
@@ -145,7 +145,7 @@ export const products = [
         }
     },
     {
-        id: 10,
+        identificador: 10,
         title: "Extensión de tira LED: 1 m ",
         subtitle : "Extensión de tira LED: 1 m",
         category: "Accesorios",
@@ -161,7 +161,7 @@ export const products = [
         }
     },
     {
-        id: 11,
+        identificador: 11,
         title: "Kit de inicio de tira LED 2 m",
         subtitle : "Kit de inicio de tira LED 2 m",
         category: "Accesorios",
@@ -177,7 +177,7 @@ export const products = [
         }
     },
     {
-        id: 12,
+        identificador: 12,
         title: "Luminaria de mesa Hero",
         subtitle : "Luminaria de mesa Hero",
         category: "Accesorios",
@@ -193,7 +193,7 @@ export const products = [
         }
     },
     {
-        id: 13,
+        identificador: 13,
         title: "Plafón ultra-delgado de RGB 16 W ",
         subtitle : "Plafon empotrado",
         category: "Empotrado",
@@ -209,7 +209,7 @@ export const products = [
         }
     },
     {
-        id: 14,
+        identificador: 14,
         title: "Plafon led RGB de 12 w",
         subtitle : "Plafon empotrado",
         category: "Empotrado",
@@ -225,7 +225,7 @@ export const products = [
         }
     },
     {
-        id: 15,
+        identificador: 15,
         title: "Plafón ultra-delgado de 20 W ",
         subtitle : "Plafon empotrado",
         category: "Empotrado",

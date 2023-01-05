@@ -1,9 +1,11 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import {useState, useEffect} from "react";
-import { products } from "../Data/products";
 import {ItemList} from "./itemList";
-import { Loader } from "./loader";
+import { collection, getDocs, getFirestore, query, where } from "firebase/firestore";
+import { Loader } from "./loader"
+
+
 
 
 const ItemListContainer = () => {
@@ -12,25 +14,26 @@ const ItemListContainer = () => {
     const {id} = useParams()
     const [ loading, setloading] = useState (true)
 
-    useEffect (() => {
-        const promesa = new Promise ((res,rej) => {
-            setTimeout(() => {
-                res (id ? products.filter (item => item.category === id) : products );
-            }, 2000)
-        });
 
-            promesa.then ((res) => {
-                setloading (false)
-                setListProducts(res)
-            })
-    }, [id])
+    useEffect (() => {
+        const db = getFirestore ();
+        const ProductosCollection = collection(db, "Productos");
+        const categoryFilter = id ? query(ProductosCollection, where("category", "==", id)) : ProductosCollection;
+        getDocs (categoryFilter).then ((snapShot) => {
+            setListProducts (snapShot.docs.map((doc) => (
+                {id:doc.id,  ...doc.data()}),
+                setloading (false),
+            ))
+        });
+    },[id]);
+
 
     return (
         <div className="body">
                 {
                     loading
                     ?
-                    <Loader />
+                    <Loader/>
                     :
                     <ItemList listProducts={listProducts} />
 
