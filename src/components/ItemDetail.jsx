@@ -30,7 +30,8 @@ const ItemDetail = ({product}) => {
                     <h3 className="card-text d-flex justify-content-center"><b>$ {product.price}</b></h3>
                 <div className="m-1 align-self-end">
                     {   
-                        isadded ?
+                        isadded 
+                        ?
                         <NavLink to="/cart">
                             <button className="p-2 text-bg-secondary">ir al carrito</button>
                         </NavLink>

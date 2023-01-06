@@ -2,6 +2,7 @@ import React from "react";
 import { useCartContext } from "../Context/CartContext";
 import { Link } from "react-router-dom";
 
+
 const carrito = () => {
 
     const {cartList, totalPrice, removeProduct, cleanCart } = useCartContext()
@@ -54,7 +55,7 @@ const carrito = () => {
                                         <td colSpan={2}>&nbsp;</td>
                                         <td ><b>Total</b></td>
                                         <td > <b>$ {totalPrice()}</b></td>
-                                        <td className="text-end"><button className="btn btn-warning">Finalizar Compra</button></td>
+                                        <td className="text-end"><Link to={"/Checkout"} className="btn btn-warning">Finalizar Compra</Link></td>
                                     </tr>
                             </tbody>
                         </table>
