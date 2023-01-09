@@ -9,6 +9,7 @@ import Footer from './components/Footer';
 import Carrito from './components/carrito';
 import CartContextProvider from './Context/CartContext'
 import Checkout from './components/Checkout';
+import CloseInfo from './components/ThankYou';
 
 
 
@@ -25,6 +26,7 @@ function App() {
             <Route path={"/item/:id"} element={<ItemDetailContainer />}/>
             <Route path={"/cart"} element={<Carrito />} />
             <Route path={"/Checkout"} element={<Checkout />} />
+            <Route path={"/closeinfo/:id"} element={<CloseInfo />}/>
             <Route path={"*"} element={<Error404 />}/>
           </Routes>
           <Footer />

@@ -9,10 +9,10 @@ const carrito = () => {
 
     if(cartList.length === 0) {
         return (
-            <div className="body">
-                <div className="container">
-                    <div className="row my-5">
-                        <div className="col-md-12 text-center">
+            <div className="body ">
+                <div className="container-fluid d-flex align-items-center " style={{height: '75vh'}}>
+                    <div className="row my-5 flex-grow-1 d-flex justify-content-center" >
+                        <div className="col-md-10 text-center ">
                             <div className="alert alert-danger" role="alert">No Hay productos en el carrito</div>
                             <Link to={"/"} className="btn btn-warning">Pagina Principal</Link>
                         </div>
@@ -24,9 +24,9 @@ const carrito = () => {
 
     return (
         <div className="body">
-            <div className='container'>
-                <div className="row my-5">
-                    <div className="col-md-12">
+            <div className='container-fluid' style={{height: '80vh'}}>
+                <div className="row my-5 d-flex justify-content-center">
+                    <div className="col-md-10">
                         <table className="table table-striped">
                             <thead>
                                 <tr>

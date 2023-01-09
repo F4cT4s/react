@@ -3,6 +3,9 @@ import { useState } from "react";
 import { useCartContext } from "../Context/CartContext";
 import BootstrapSwitchButton from 'bootstrap-switch-button-react'
 import { addDoc, collection, getFirestore, doc ,writeBatch, getDoc } from "firebase/firestore";
+import { Navigate } from "react-router-dom";
+
+
 
 
 
@@ -16,8 +19,7 @@ const Checkout = () => {
     const [email, setEmail] = useState("")
     const [direccion, setDireccion] = useState("")
     const [checkbox, setCheckbox] = useState(true)
-    const [orderId, setOrderId] = useState ("")
-
+    const [trackerCode, setTrackerCode] = useState("")
 
     const check = () => {
         setCheckbox (false)
@@ -34,28 +36,30 @@ const Checkout = () => {
             date: `${fecha.getFullYear()}-${fecha.getMonth() +1}-${fecha.getDate()} ${fecha.getHours()}:${fecha.getMinutes()}:${fecha.getSeconds()}`,
             tracker: randomstring.generate(10),            
         };
+        
+        setTrackerCode(order.tracker)
 
         const db = getFirestore();
         const ordersCollection = collection(db, "orders");
         addDoc(ordersCollection, order).then((snapShot) => {
-            setOrderId(snapShot.id);
-            const batch = writeBatch(db);
+            /*const batch = writeBatch(db);
 
-            cartList.forEach(item => {
-                let producto = doc(db, "items", item.id);
+            /*cartList.forEach(item => {
+                let producto = doc(db, "Productos", item.id);
                 getDoc(producto).then((snapShot) => {
                     batch.update(producto, {stock:snapShot.data().stock - item.quantity});
                 });
             });
             
-            batch.commit();
-            cleanCart();
-    })
-}
+            batch.commit();*/
+            cleanCart ();
+
+    });
+    }
 
     return (
         <div className="body">
-            <div className="container">
+            <div className="container" style={{height: '80vh'}}>
                 <div className="row my-5">
                     <div className="col-md-6">
                         <form>
@@ -84,7 +88,7 @@ const Checkout = () => {
                                     ?
                                     <button className="btn btn-danger" disabled>Aceptar Terminos y condiciones</button>
                                     :
-                                    <button className="btn btn-success" type="submit" onClick={generarOrden}>Realizar pedido</button>}
+                                    <button className="btn btn-success" type="button" onClick={generarOrden}>Realizar pedido</button>}
                                     
                                 </div>
                         </form>
@@ -95,7 +99,7 @@ const Checkout = () => {
                             <tbody>
                                 {cartList.map(prod =>
                                     <tr key={prod.id}>
-                                        <td ><img src={prod.image} alt={prod.title} width={100} /></td>  
+                                        <td ><img src={prod.image} alt={prod.title} width={80} /></td>  
                                         <td  className="aling-middle">{prod.title}</td>
                                         <td  className="aling-middle">{prod.quantity}</td>
                                         <td  className="aling-middle">$ {prod.price * prod.quantity}</td>
@@ -113,11 +117,11 @@ const Checkout = () => {
                 </div>
                 <div className="row">
                     <div className="col text-center">
-                        {orderId !== "" ? <div className="alert alert-warning" role="alert">La Orden generada es: <b>{orderId}</b></div> : ""}
+                        {trackerCode !== "" ? <Navigate to={"/thankyou/" + trackerCode} /> : ""}
+                    </div>
                     </div>
                 </div>
             </div>
-        </div>
     )
 }
 

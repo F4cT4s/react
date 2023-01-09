@@ -1,8 +1,11 @@
-
+.body {
+  height: 100%;
+}
 #root {
   background: linear-gradient(240deg, rgba(0,0,0,1) 11.2%, rgba(11,132,145,1) 91.1%); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
+  height: 100%;
 }
+
   #header{
     background-image: linear-gradient( 109.6deg,  rgba(0,0,0,1) 11.2%, rgba(11,132,145,1) 91.1% );
     width: 100%;

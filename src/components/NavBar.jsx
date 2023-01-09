@@ -4,7 +4,7 @@ import { Link, NavLink } from "react-router-dom";
 
 
 const NavBar = () => {
-    return (
+    return (    
         <div className="p-3" id="header">
             <div className="row">
                 <div className="col-md-8">

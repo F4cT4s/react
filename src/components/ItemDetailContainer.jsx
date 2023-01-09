@@ -24,7 +24,7 @@ const ItemDetailContainer = () => {
                 console.log("no existe");
             }
         })
-    })
+    } ,[])
 
 
     return (
