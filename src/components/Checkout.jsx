@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { useCartContext } from "../Context/CartContext";
 import BootstrapSwitchButton from 'bootstrap-switch-button-react'
-import { addDoc, collection, getFirestore, doc ,writeBatch, getDoc } from "firebase/firestore";
+import { addDoc, collection, getFirestore } from "firebase/firestore";
 import { Navigate } from "react-router-dom";
 
 
@@ -41,27 +41,16 @@ const Checkout = () => {
 
         const db = getFirestore();
         const ordersCollection = collection(db, "orders");
-        addDoc(ordersCollection, order).then((snapShot) => {
-            /*const batch = writeBatch(db);
-
-            /*cartList.forEach(item => {
-                let producto = doc(db, "Productos", item.id);
-                getDoc(producto).then((snapShot) => {
-                    batch.update(producto, {stock:snapShot.data().stock - item.quantity});
-                });
-            });
-            
-            batch.commit();*/
+        addDoc(ordersCollection, order).then(() => {
             cleanCart ();
-
     });
     }
 
     return (
         <div className="body">
-            <div className="container" style={{height: '80vh'}}>
+            <div className="container-fluid px-5" style={{height: '80vh'}}>
                 <div className="row my-5">
-                    <div className="col-md-6">
+                    <div className="col-md-5">
                         <form>
                             <div className="mb-3">
                                 <label htmlFor="nombre" className="form-label">Nombre y Apellido</label>
@@ -94,7 +83,7 @@ const Checkout = () => {
                         </form>
                     </div>
 
-                    <div className="col-md-6"> 
+                    <div className="col-md-7"> 
                         <table className="table">
                             <tbody>
                                 {cartList.map(prod =>

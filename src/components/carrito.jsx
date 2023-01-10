@@ -14,7 +14,7 @@ const carrito = () => {
                     <div className="row my-5 flex-grow-1 d-flex justify-content-center" >
                         <div className="col-md-10 text-center ">
                             <div className="alert alert-danger" role="alert">No Hay productos en el carrito</div>
-                            <Link to={"/"} className="btn btn-warning">Pagina Principal</Link>
+                            <Link to={"/"} id="btnFinalizarCompra" className="btn">Pagina Principal</Link>
                         </div>
                     </div>
                 </div>
@@ -30,7 +30,7 @@ const carrito = () => {
                         <table className="table table-striped">
                             <thead>
                                 <tr>
-                                    <th scope="col" colSpan={5} className="text-end"><Link onClick={cleanCart} className='btn btn-primary'>Vaciar carrito</Link></th>
+                                    <th scope="col" colSpan={5} className="text-end" ><Link onClick={cleanCart} id="btnVaciarCarrito" className="btn">Vaciar carrito</Link></th>
                                 </tr>
                                 <tr>
                                     <th scope="col">&nbsp;</th>
@@ -43,7 +43,7 @@ const carrito = () => {
                             <tbody>
                                 {cartList.map(prod =>
                                     <tr key={prod.id}>
-                                        <td ><img src={prod.image} alt={prod.title} width={100} /></td>  
+                                        <td ><img src={prod.image} alt={prod.title} width={130} /></td>  
                                         <td  className="aling-middle">{prod.title}</td>
                                         <td  className="aling-middle">{prod.quantity}</td>
                                         <td  className="aling-middle">$ {prod.price * prod.quantity}</td>
@@ -55,7 +55,7 @@ const carrito = () => {
                                         <td colSpan={2}>&nbsp;</td>
                                         <td ><b>Total</b></td>
                                         <td > <b>$ {totalPrice()}</b></td>
-                                        <td className="text-end"><Link to={"/Checkout"} className="btn btn-warning">Finalizar Compra</Link></td>
+                                        <td className="text-end"><Link to={"/Checkout"} id="btnFinalizarCompra" className="btn" >Finalizar Compra</Link></td>
                                     </tr>
                             </tbody>
                         </table>
