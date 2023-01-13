@@ -6,10 +6,10 @@ import ItemListContainer from './components/ItemListContainer';
 import ItemDetailContainer from './components/ItemDetailContainer';
 import { Error404 } from './components/Error404';
 import Footer from './components/Footer';
-import Carrito from './components/carrito';
+import Cart from './components/Cart';
 import CartContextProvider from './Context/CartContext'
 import Checkout from './components/Checkout';
-import CloseInfo from './components/ThankYou';
+import CloseInfo from './components/CloseInfo';
 
 
 
@@ -24,7 +24,7 @@ function App() {
             <Route path={"/"} element={<ItemListContainer />}/>
             <Route path={"/category/:id"} element={<ItemListContainer />}/>
             <Route path={"/item/:id"} element={<ItemDetailContainer />}/>
-            <Route path={"/cart"} element={<Carrito />} />
+            <Route path={"/Cart"} element={<Cart />} />
             <Route path={"/Checkout"} element={<Checkout />} />
             <Route path={"/closeinfo/:id"} element={<CloseInfo />}/>
             <Route path={"*"} element={<Error404 />}/>

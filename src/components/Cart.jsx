@@ -3,7 +3,7 @@ import { useCartContext } from "../Context/CartContext";
 import { Link } from "react-router-dom";
 
 
-const carrito = () => {
+const Cart = () => {
 
     const {cartList, totalPrice, removeProduct, cleanCart } = useCartContext()
 
@@ -14,7 +14,7 @@ const carrito = () => {
                     <div className="row my-5 flex-grow-1 d-flex justify-content-center" >
                         <div className="col-md-10 text-center ">
                             <div className="alert alert-danger" role="alert">No Hay productos en el carrito</div>
-                            <Link to={"/"} id="btnFinalizarCompra" className="btn">Pagina Principal</Link>
+                            <Link to={"/"} id="btnGenerico" className="btn">Pagina Principal</Link>
                         </div>
                     </div>
                 </div>
@@ -47,7 +47,7 @@ const carrito = () => {
                                         <td  className="aling-middle">{prod.title}</td>
                                         <td  className="aling-middle">{prod.quantity}</td>
                                         <td  className="aling-middle">$ {prod.price * prod.quantity}</td>
-                                        <td  className="aling-end text-end"><button onClick={() => removeProduct (prod.id)} type="button" className="btn btn-danger">X</button></td>
+                                        <td  className="aling-end text-end"><button onClick={() => removeProduct (prod.id)} type="button" id="btnRemove" className="btn btn-danger">X</button></td>
                                     </tr>
                                         )
                                     }
@@ -55,7 +55,7 @@ const carrito = () => {
                                         <td colSpan={2}>&nbsp;</td>
                                         <td ><b>Total</b></td>
                                         <td > <b>$ {totalPrice()}</b></td>
-                                        <td className="text-end"><Link to={"/Checkout"} id="btnFinalizarCompra" className="btn" >Finalizar Compra</Link></td>
+                                        <td className="text-end"><Link to={"/Checkout"} id="btnGenerico" className="btn" >Finalizar Compra</Link></td>
                                     </tr>
                             </tbody>
                         </table>
@@ -69,4 +69,4 @@ const carrito = () => {
 
     
 
-export default carrito
+export default Cart

@@ -6,10 +6,6 @@ import { addDoc, collection, getFirestore } from "firebase/firestore";
 import { Navigate } from "react-router-dom";
 
 
-
-
-
-
 const Checkout = () => {
 
     const {cartList, totalPrice, cleanCart} = useCartContext()
@@ -21,6 +17,8 @@ const Checkout = () => {
     const [checkbox, setCheckbox] = useState(true)
     const [trackerCode, setTrackerCode] = useState("")
 
+
+
     const check = () => {
         setCheckbox (false)
     }
@@ -31,7 +29,7 @@ const Checkout = () => {
         const fecha = new Date();
         const order = {
             buyer: {name:nombre, phone:telefono, email:email, address:direccion},
-            items: cartList.map(prod => ({id:prod.id, title:prod.title, price:prod.price, quantity:prod.quantity})),
+            items: cartList.map(prod => ({id:prod.id, title:prod.title, price:prod.price, quantity:prod.quantity, color:prod.color, size:prod.size, voltage:prod.voltage })),
             total: totalPrice(),
             date: `${fecha.getFullYear()}-${fecha.getMonth() +1}-${fecha.getDate()} ${fecha.getHours()}:${fecha.getMinutes()}:${fecha.getSeconds()}`,
             tracker: randomstring.generate(10),            
@@ -54,7 +52,7 @@ const Checkout = () => {
                         <form>
                             <div className="mb-3">
                                 <label htmlFor="nombre" className="form-label">Nombre y Apellido</label>
-                                <input type="text" className="form-control" placeholder="Ingrese su Nombre y Apellido" onInput={(e) => {setNombre(e.target.value)}}/>
+                                <input type="text" className="form-control" placeholder="Ingrese su Nombre y Apellido"  onInput={(e) => {setNombre(e.target.value)} }/>
                             </div>
                             <div className="mb-3">
                                 <label htmlFor="telefono" className="form-label">Telefono:</label>
@@ -62,7 +60,8 @@ const Checkout = () => {
                             </div>
                             <div className="mb-3">
                                 <label htmlFor="email" className="form-label">Email:</label>
-                                <input type="email" className="form-control" placeholder="Ingrese su Email" onInput={(e) => {setEmail(e.target.value)}}/>
+                                <input type="text" className="form-control"  placeholder="Ingrese su Email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$"
+                                onInput={(e) => {setEmail(e.target.value)}}/>
                             </div>
                             <div className="mb-3">
                                 <label htmlFor="direccion" className="form-label">Direccion:</label>
@@ -72,10 +71,10 @@ const Checkout = () => {
                                 <BootstrapSwitchButton checked={false} onstyle="success" onChange={check} />
                                 <label className="mx-3">Acepto Terminos y Condiciones</label>
                             </div>
-                            <div>{  
+                                <div>{  
                                     checkbox
                                     ?
-                                    <button className="btn btn-danger" disabled>Aceptar Terminos y condiciones</button>
+                                    <button className="btn btn-danger" disabled>Aceptar Terminos y Condiciones</button>
                                     :
                                     <button className="btn btn-success" type="button" onClick={generarOrden}>Realizar pedido</button>}
                                     
@@ -84,7 +83,7 @@ const Checkout = () => {
                     </div>
 
                     <div className="col-md-7"> 
-                        <table className="table">
+                        <table className="table table-striped">
                             <tbody>
                                 {cartList.map(prod =>
                                     <tr key={prod.id}>
@@ -106,7 +105,7 @@ const Checkout = () => {
                 </div>
                 <div className="row">
                     <div className="col text-center">
-                        {trackerCode !== "" ? <Navigate to={"/thankyou/" + trackerCode} /> : ""}
+                        {trackerCode !== "" ? <Navigate to={"/closeinfo/" + trackerCode} /> : ""}
                     </div>
                     </div>
                 </div>

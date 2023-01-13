@@ -11,19 +11,22 @@ export default function CartContextProvider ({ children }) {
 
     const isInCart = (id) => cartList.find (prod => prod.id === id)
 
-    const addToCart = (item, quantity) => {
+    const addToCart = ( item, quantity, colorSelect, sizeSelect, voltageSelect) => {
         if (isInCart(item.id)) {
             const newCart = cartList.map (prod => {
                 if (prod.id === item.id) {
                     const newQuantity = prod.quantity + quantity
-                    return {...prod, quantity: newQuantity}
+                    const Color = colorSelect
+                    const watts = sizeSelect
+                    const volt = voltageSelect
+                    return {...prod, quantity: newQuantity, color: Color, size: watts, voltage: volt }
                 } else {
                     return prod
                 }
             })
             setCartList(newCart)
         } else {
-            const newProduct = {...item, quantity: quantity}
+            const newProduct = {...item, quantity: quantity, color:colorSelect, size:sizeSelect, voltage:voltageSelect}
             setCartList ([...cartList, newProduct])
         }
     }       

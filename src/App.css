@@ -147,6 +147,26 @@ tbody, td, tfoot, th, thead, tr {
   box-shadow:7px 7px .2em rgb(95, 3, 243), -7px -7px .2em rgb(7, 213, 250) !important ;
 }
 
+.select{
+  font-family: 'Oswald', sans-serif;
+  font-size: 23px;
+  color: #0cdbff;  
+  border-radius: 3px;
+  background: transparent;
+  
+  border: none;
+}
+
+.option{
+  color: #0cdbff;
+  background: rgba(11,132,145,1) ;
+}
+
+.option:checked{
+  background: #0cf86e ;
+  color: black;
+}
+
 h5{
   font-family: 'Varela Round', sans-serif;
   color: #0cdbff;
@@ -211,14 +231,14 @@ th, td {
 
 /*FINALIZAR COMPRA*/
 
-#btnFinalizarCompra {
+#btnGenerico {
   box-shadow: inset 0 0 0 4px #58afd1;
   color: #58afd1;
   transition: color 0.25s 0.0833333333s;
   font-size: 22px;
   position: relative;
 }
-#btnFinalizarCompra::before, #btnFinalizarCompra::after {
+#btnGenerico::before, #btnGenerico::after {
   border: 0 solid transparent;
   
   box-sizing: border-box;
@@ -230,29 +250,29 @@ th, td {
   bottom: 0;
   right: 0;
 }
-#btnFinalizarCompra::before {
+#btnGenerico::before {
   border-bottom-width: 4px;
   border-left-width: 4px;
 }
-#btnFinalizarCompra::after {
+#btnGenerico::after {
   border-top-width: 4px;
   border-right-width: 4px;
   
 }
-#btnFinalizarCompra:hover {
-  color: #02e7f7;
+#btnGenerico:hover {
+  color: #0cf86e;
   
 }
-#btnFinalizarCompra:hover::before, #btnFinalizarCompra:hover::after {
-  border-color: #00fff2;
+#btnGenerico:hover::before, #btnGenerico:hover::after {
+  border-color: #0cf86e;
   transition: border-color 0s, width 0.25s, height 0.25s;
   width: 100%;
   height: 100%;
 }
-#btnFinalizarCompra:hover::before {
+#btnGenerico:hover::before {
   transition-delay: 0s, 0s, 0.25s;
 }
-#btnFinalizarCompra:hover::after {
+#btnGenerico:hover::after {
   transition-delay: 0s, 0.25s, 0s;
 }
 
@@ -327,4 +347,30 @@ th, td {
 label , input {
   font-size: 20px;
   font-family:'Varela Round', sans-serif;;
+}
+
+#btnRemove:hover{
+  -webkit-animation: rotate-hor-center 0.5s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
+	        animation: rotate-hor-center 0.5s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
+}
+
+@-webkit-keyframes rotate-hor-center {
+  0% {
+    -webkit-transform: rotateX(0);
+            transform: rotateX(0);
+  }
+  100% {
+    -webkit-transform: rotateX(-360deg);
+            transform: rotateX(-360deg);
+  }
+}
+@keyframes rotate-hor-center {
+  0% {
+    -webkit-transform: rotateX(0);
+            transform: rotateX(0);
+  }
+  100% {
+    -webkit-transform: rotateX(-360deg);
+            transform: rotateX(-360deg);
+  }
 }
