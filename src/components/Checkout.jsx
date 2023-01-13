@@ -46,7 +46,7 @@ const Checkout = () => {
 
     return (
         <div className="body">
-            <div className="container-fluid px-5" style={{height: 'auto'}}>
+            <div className="container-fluid px-5" style={{height: '100vh'}}>
                 <div className="row my-5">
                     <div className="col-md-5">
                         <form>
