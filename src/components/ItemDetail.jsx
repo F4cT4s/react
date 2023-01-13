@@ -82,25 +82,23 @@ const ItemDetail = ({product, color, size , voltage}) => {
                     <h2 className="card-title m-2 d-flex justify-content-center">{product.category}</h2>
                     <h4 className="card-text m-2 d-flex justify-content-center">{product.descripcion}</h4>
                     <h3 className="card-text d-flex justify-content-center"><b>$ {product.price}</b></h3>                   
-                    
-                    <div className="container">
-                        <form className="d-flex justify-content-around m-5" onSubmit={handleSubmit}>
-                            <div className="custom-select"> 
+                </div>
+                    <div className="col-md-12">
+                        <form className="d-flex justify-content-around m-4 " id="options" onSubmit={handleSubmit}>
+                            <div className="m-2"> 
                                 <select className="select" required onChange={handleChangeColor} value={colorSelect}>{colorList}</select>
-                                <div>{errors.colorSelect}</div>
+                                <div className="">{errors.colorSelect}</div>
                             </div>
-                            <div className="custom-select">
+                            <div className="m-2">
                                 <select className="select" required onChange={handleChangeSize} value={sizeSelect}>{sizeList}</select>
-                                <div>{errors.sizeSelect}</div>
+                                <div className="">{errors.sizeSelect}</div>
                             </div>
-                            <div className="custom-select">
+                            <div className=" m-2" >
                                 <select className="select" required onChange={handleChangeVoltage} value={voltageSelect}> {voltageList}</select>
-                                <div>{errors.voltageSelect}</div>
+                                <div className="">{errors.voltageSelect}</div>
                             </div>
                         </form>
                     </div>
-                    
-                    
                 <div className="m-1 align-self-end">                          
                     { 
                         isadded 
@@ -119,7 +117,7 @@ const ItemDetail = ({product, color, size , voltage}) => {
                     </div>
                 </div>
             </div>
-        </div>
+
     )
 }
 

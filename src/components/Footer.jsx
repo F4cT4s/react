@@ -6,14 +6,14 @@ const Footer = () => {
     const year = today.getFullYear();
 
     return (
-        <div className="container" id="footer">
-            <div className="">
+        <div id="footer">
+
                 <div className="row">
                     <div className="d-flex align-items-center">
-                        <div className="col-sm-8 m-3" >
+                        <div className="col-md-6 col-12 p-3" >
                             <span><b>©Copyright {year} WizLighting International. Todos los derechos reservados</b></span>
                         </div>
-                        <div className="col-sm-3 m-3">
+                        <div className="col-md-6 p-3 ">
                             <ul className="d-flex justify-content-end list-unstyled d-flex">
                                 <li className="m-3">  
                                     <a href="https://www.facebook.com/WiZlighting" target="_blank" rel="noopener noreferrer" ><img src="https://img.icons8.com/color/48/000000/facebook-new.png" alt="facebook"></img> </a>
@@ -28,7 +28,7 @@ const Footer = () => {
                         </div>
                     </div>
                 </div>
-            </div>
+
         </div>
     )
 }

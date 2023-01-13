@@ -24,9 +24,9 @@ const Cart = () => {
 
     return (
         <div className="body">
-            <div className='container-fluid' style={{height: '80vh'}}>
-                <div className="row my-5 d-flex justify-content-center">
-                    <div className="col-md-10">
+            <div className='container' style={{height: '80vh'}}>
+                <div className="row my-5">
+                    <div className="col-md-12">
                         <table className="table table-striped">
                             <thead>
                                 <tr>
@@ -43,7 +43,7 @@ const Cart = () => {
                             <tbody>
                                 {cartList.map(prod =>
                                     <tr key={prod.id}>
-                                        <td ><img src={prod.image} alt={prod.title} width={130} /></td>  
+                                        <td ><img src={prod.image} alt={prod.title} width={80} /></td>  
                                         <td  className="aling-middle">{prod.title}</td>
                                         <td  className="aling-middle">{prod.quantity}</td>
                                         <td  className="aling-middle">$ {prod.price * prod.quantity}</td>
