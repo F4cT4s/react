@@ -9,22 +9,57 @@ import { Navigate } from "react-router-dom";
 const Checkout = () => {
 
     const {cartList, totalPrice, cleanCart} = useCartContext()
-    
+
+    const [isFormValid, setIsFormValid] = useState(false);
     const [nombre, setNombre] = useState("")
     const [telefono, setTelefono] = useState("")
     const [email, setEmail] = useState("")
     const [direccion, setDireccion] = useState("")
-    const [checkbox, setCheckbox] = useState(true)
+    const [checkbox, setCheckbox] = useState(false)
     const [trackerCode, setTrackerCode] = useState("")
+    const [checkboxError, setCheckboxError] = useState("");
 
 
+    const handleNombreChange = (e) => {
+        const nombre = e.target.value;
+        setNombre(nombre);
+        checkFormValidity();
+    };
+    
+    const handleTelefonoChange = (e) => {
+        const telefono = e.target.value;
+        setTelefono(telefono);
+        checkFormValidity();
+    };
+    
+    const handleEmailChange = (e) => {
+        const email = e.target.value;
+        setEmail(email);
+        checkFormValidity();
+    };
+    
+    const handleDireccionChange = (e) => {
+        const direccion = e.target.value;
+        setDireccion(direccion);
+        checkFormValidity();
+    };
+    
+    const checkFormValidity = () => {
+        if (nombre.trim().length > 0 && telefono.trim().length > 0 && email.trim().length > 0 && direccion.trim().length > 0) {
+            setIsFormValid(true);
+        } else {
+            setIsFormValid(false);
+        }
+    };
 
     const check = () => {
-        setCheckbox (false)
-    }
+        setCheckbox(!checkbox);
+        checkFormValidity();
+    };
 
 
     const generarOrden = () => {
+        if (checkbox){
         var randomstring = require("randomstring");
         const fecha = new Date();
         const order = {
@@ -41,8 +76,10 @@ const Checkout = () => {
         const ordersCollection = collection(db, "orders");
         addDoc(ordersCollection, order).then(() => {
             cleanCart ();
-    });
-    }
+    })
+    } else {
+        setCheckboxError("Debe de aceptar terminos y condiciones");
+    }}
 
     return (
         <div className="body">
@@ -52,33 +89,27 @@ const Checkout = () => {
                         <form>
                             <div className="mb-3">
                                 <label htmlFor="nombre" className="form-label">Nombre y Apellido</label>
-                                <input type="text" className="form-control" placeholder="Ingrese su Nombre y Apellido"  onInput={(e) => {setNombre(e.target.value)} }/>
+                                <input type="text" className="form-control" placeholder="Ingrese su Nombre y Apellido"  onInput={handleNombreChange}/>
                             </div>
                             <div className="mb-3">
                                 <label htmlFor="telefono" className="form-label">Telefono:</label>
-                                <input type="number" className="form-control" placeholder="Ingrese su numero de Telefono" onInput={(e) => {setTelefono(e.target.value)}}/>
+                                <input type="number" className="form-control" placeholder="Ingrese su numero de Telefono" onInput={handleTelefonoChange}/>
                             </div>
                             <div className="mb-3">
                                 <label htmlFor="email" className="form-label">Email:</label>
                                 <input type="text" className="form-control"  placeholder="Ingrese su Email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$"
-                                onInput={(e) => {setEmail(e.target.value)}}/>
+                                onInput={handleEmailChange}/>
                             </div>
                             <div className="mb-3">
                                 <label htmlFor="direccion" className="form-label">Direccion:</label>
-                                <input type="text" className="form-control" placeholder="Ingrese Direccion de envio" onInput={(e) => {setDireccion(e.target.value)}}/>
+                                <input type="text" className="form-control" placeholder="Ingrese Direccion de envio" onInput={handleDireccionChange}/>
                             </div>
                             <div className="my-4">
-                                <BootstrapSwitchButton checked={false} onstyle="success" onChange={check} />
-                                <label className="mx-3">Acepto Terminos y Condiciones</label>
+                                <BootstrapSwitchButton checked={checkbox} onstyle="success" onChange={check} />
+                                <label className="mx-3">Acepto Terminos y Condiciones</label>{checkboxError && <div className="error">{checkboxError}</div>}
                             </div>
-                                <div>{  
-                                    checkbox
-                                    ?
-                                    <button className="btn btn-danger" disabled>Aceptar Terminos y Condiciones</button>
-                                    :
-                                    <button className="btn btn-success" type="button" onClick={generarOrden}>Realizar pedido</button>}
-                                    
-                                </div>
+                            <button type="button" className="btn btn-success" onClick={generarOrden} disabled={!isFormValid}>Realizar Pedido</button>
+                            {!isFormValid && <div className="error">Por favor complete todos los campos</div>}
                         </form>
                     </div>
 
