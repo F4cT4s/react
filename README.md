@@ -4,6 +4,7 @@ La aplicacion esta conformada por 4 navlinks en los cuales se encuentra una vist
 
 Se agrego por fuera de lo solicitado un boton de "Volver al inicio", en el componente Item con la ruta ("/"), para poder regresar al shop. Tambien se agrego un boton "switch" en el componente checkout, con la finalidad de aceptar terminos y condiciones, y al aceptar renderiza el boton ¨Realizar compra¨ que en su estado previo es un boton en estado (disable) y muestra el mensaje ¨Aceptar Terminos y condiciones¨.
 Por otro lado en el componente "Chekout" se agrego un input de "Direccion" y al realizar la compra se genera, ademas de un id de compra, un numero de Tracker para el usuario que este mismo es el mostrado en el componente "Closeinfo".
+Ademas se agrega funcionalidad para elegir una configuracion extra a cada producto, esta posee un condicional para que sea obligatoria la eleccion de la misma, luego eso se suma al carlist para ser pusheado a firebase.
 
 El proyecto tiene instalada la libreria "BootstrapSwitchButton", la cual se utiliza en el componente checkout, y es la que carga el boton de "Aceptar Terminos y Condiciones".
 
